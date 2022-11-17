@@ -8,19 +8,16 @@ class SeriesController extends Controller
 {
     public function index(Request $request)
     {
-
         $series = [
             'Punisher',
             'Stranger Things',
             'Rings of Power',
         ];
 
-        $html = '<ul>';
-        foreach ($series as $serie) {
-            $html .= "<li>{$serie}</li>";
-        }
-        $html .= '</ul>';
+        return view('series.index')->with('series', $series);
+    }
 
-        return response($html, 200, []);
+    public function create(){
+        return view('series.create');
     }
 }
